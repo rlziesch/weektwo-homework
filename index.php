@@ -28,6 +28,8 @@
 
           if (empty($age)) {
               echo "You did not submit a numeric age parameter.";
+            } else if (!is_numeric($age)) {
+                echo "You did not submit a NUMERIC age parameter.";
             } else if ($age >=18) {
               echo "I am old enough to vote in the United States.";
           } else if ($age < 18) {
@@ -38,7 +40,9 @@
 
     <p>
     <?php
-        if (!empty($age)) {
+        if (!is_numeric($age)) {
+            echo " ";
+        } else if (!empty($age)) {
             echo "That means I'm at least " . $age * 365 . " days old.";
         }
     ?>
